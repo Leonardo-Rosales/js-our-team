@@ -79,3 +79,34 @@ function createMemberCard(member) {
 
     return card;
 }
+
+const rowElement = document.getElementById('row-card')
+let colContent = ''
+
+for (let i = 0; i < teamMembers.length; i++) {
+    const memberElement = teamMembers[i];
+
+    // Creazione della card come stringa HTML
+    
+    colContent += `
+       <div class="col-md-4">
+            <div class="card mb-3 bg-dark" style="max-width: 540px;">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img class="img-fluid rounded-start" src="${memberElement.img}" alt="Foto di ${memberElement.name}">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h2 class="text-white">${memberElement.name}</h2>
+                            <p class="text-white"><strong>${memberElement.role}</strong></p>
+                            <p class="text-info"><strong>${memberElement.email}</strong></p>
+                        </div>
+                    </div>
+                </div>   
+            </div>
+       </div>
+    `;
+}
+
+
+rowElement.innerHTML = colContent;
